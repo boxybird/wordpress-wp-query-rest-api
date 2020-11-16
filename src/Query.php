@@ -52,6 +52,10 @@ class Query
     {
         $query = new WP_Query(static::$args);
 
-        return wp_send_json_success(static::handleFilters($query));
+        $filtered = static::handleFilters($query);
+
+        $data = !empty($filtered) ? $filtered : [];
+
+        return wp_send_json_success($data);
     }
 }
