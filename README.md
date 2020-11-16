@@ -7,7 +7,7 @@ Query anything you want from the WordPress database using a single REST API endp
 ### URL
 
 ```
-https://example.com/wp-json/boxybird/wp-query/v1/args?post_type=post&post_per_page=5&tag__in[]=15&tag__in[]=22&orderby=title
+https://example.com/wp-json/boxybird/wp-query/v1/args?post_type=post&posts_per_page=5&tag__in[]=15&tag__in[]=22&orderby=title
 ```
 
 ### jQuery
