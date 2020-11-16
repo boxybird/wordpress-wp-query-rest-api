@@ -9,8 +9,6 @@ class Query
 {
     protected static $args;
 
-    protected static $default_args = [];
-
     public static function init()
     {
         add_action('rest_api_init', function () {
@@ -35,9 +33,10 @@ class Query
 
     protected function handleArgs(WP_REST_Request $request)
     {
-        $defaults = apply_filters('boxybird/query/default-args', static::$default_args);
+        $defaults  = apply_filters('boxybird/query/default-args', []);
+        $overrides = apply_filters('boxybird/query/override-args', []);
 
-        static::$args = array_merge($request->get_params(), $defaults);
+        static::$args = array_merge($defaults, $request->get_params(), $overrides);
     }
 
     protected function handleResponse()

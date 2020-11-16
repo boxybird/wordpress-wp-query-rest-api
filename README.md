@@ -52,13 +52,27 @@ add_filter('boxybird/query/format-response', function (WP_Query $query) {
 });
 ```
 
-### Modify/Add Default WP_Query Args
+### Add/Modify WP_Query Args
 
 > https://developer.wordpress.org/reference/classes/wp_query/
 
+#### Default Args
+
 ```php
+// These $args will be overridden by any matching request params
 add_filter('boxybird/query/default-args', function ($args) {
     $args['posts_per_page'] = 12;
+
+    return $args;
+});
+```
+
+#### Override Args
+
+```php
+// These $args will override any matching request params
+add_filter('boxybird/query/override-args', function ($args) {
+    $args['posts_per_page'] = 5;
 
     return $args;
 });
