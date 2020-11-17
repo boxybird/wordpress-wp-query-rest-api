@@ -1,3 +1,5 @@
+## 🚧 Experimental!
+
 # WP_Query as a REST API Endpoint
 
 Query anything you want from the WordPress database using a single REST API endpoint.
