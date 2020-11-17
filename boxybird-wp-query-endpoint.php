@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       WP_Query REST API Endpoint
- * Version:           0.0.1
+ * Version:           0.0.2
  * Author:            Andrew Rhyand
  * Author URI:        https://andrewrhyand.com
  * License:           GPLv2 or later
