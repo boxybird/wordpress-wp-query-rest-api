@@ -40,10 +40,10 @@ class Query
         static::$args = array_merge($defaults, $params, $overrides);
     }
 
-    protected function handleFilters(WP_Query $query)
+    protected function handleFormatResponse(WP_Query $query)
     {
         if (!has_filter('boxybird/query/format-response')) {
-            return $query->posts;
+            return $query->post_count ? $query->posts : [];
         }
 
         return apply_filters('boxybird/query/format-response', $query);
@@ -53,9 +53,7 @@ class Query
     {
         $query = new WP_Query(static::$args);
 
-        $filtered = static::handleFilters($query);
-
-        $data = !empty($filtered) ? $filtered : [];
+        $data = static::handleFormatResponse($query);
 
         return wp_send_json_success($data);
     }
