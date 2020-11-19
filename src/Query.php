@@ -33,11 +33,10 @@ class Query
 
     protected function handleArgs(WP_REST_Request $request)
     {
-        $params    = $request->get_params();
         $defaults  = apply_filters('boxybird/query/default-args', []);
-        $overrides = apply_filters('boxybird/query/override-args', $params);
+        $args      = apply_filters('boxybird/query/override-args', $request->get_params());
 
-        static::$args = array_merge($defaults, $params, $overrides);
+        static::$args = array_merge($defaults, $args);
     }
 
     protected function handleFormatResponse(WP_Query $query)
