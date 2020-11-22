@@ -1,0 +1,23 @@
+{
+  "name": "boxybird/boxybird-wp-query-endpoint",
+  "description": "Query anything you want from the WordPress database using a single REST API endpoint.",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "wp_query",
+    "plugin",
+    "rest api"
+  ],
+  "authors": [
+    {
+      "name": "Andrew Rhyand ",
+      "email": "hello@andrewrhyand.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "BoxyBird\\WpQuery\\": "./src"
+    }
+  }
+}
