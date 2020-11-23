@@ -105,7 +105,7 @@ Out of the box, `WP_Query` will return the raw rows from the `wp_posts` table. L
       "ID": 567,
       "post_author": "1",
       "post_date": "2020-11-23 00:17:16",
-      //... and so on
+      "...and so on"
     }
   ]
 }
@@ -220,7 +220,7 @@ Focusing on the 'movie' post_type above, this would be the custom formatted resp
       "id": 551,
       "title": "Enemy Lines",
       "description": "In the frozen, war torn landscape of occupied Poland during World War II, a crack team of allied commandos are sent on a deadly mission behind enemy lines to extract a rocket scientist from the hands of the Nazis.",
-      //... and so on.
+      "...and so on"
     }
   ]
 }
