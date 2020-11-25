@@ -31,7 +31,7 @@ class Query
         return apply_filters('boxybird/query/permission', true);
     }
 
-    protected function handleArgs(WP_REST_Request $request)
+    protected static function handleArgs(WP_REST_Request $request)
     {
         $defaults  = apply_filters('boxybird/query/default-args', []);
         $args      = apply_filters('boxybird/query/override-args', $request->get_params());
@@ -39,7 +39,7 @@ class Query
         static::$args = array_merge($defaults, $args);
     }
 
-    protected function handleFormatResponse(WP_Query $query)
+    protected static function handleFormatResponse(WP_Query $query)
     {
         if (!has_filter('boxybird/query/format-response')) {
             return $query->post_count ? $query->posts : [];
@@ -48,7 +48,7 @@ class Query
         return apply_filters('boxybird/query/format-response', $query);
     }
 
-    protected function handleResponse()
+    protected static function handleResponse()
     {
         $query = new WP_Query(static::$args);
 
