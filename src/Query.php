@@ -33,8 +33,8 @@ class Query
 
     protected static function handleArgs(WP_REST_Request $request)
     {
-        $defaults  = apply_filters('boxybird/query/default-args', []);
-        $args      = apply_filters('boxybird/query/override-args', $request->get_params());
+        $defaults = apply_filters('boxybird/query/default-args', []);
+        $args     = apply_filters('boxybird/query/override-args', $request->get_params());
 
         static::$args = array_merge($defaults, $args);
     }
