@@ -18,11 +18,11 @@ Normally in a WordPress theme or plugin you would create an array of $args and p
 <?php
 
 $args = [
-  'post_type'      => 'post',
-  'orderby'        => 'title',
-  'posts_per_page' => 12,
-  'category__in'   => [31, 12, 4],
-  //... any other WP_Query args you want.
+    'post_type'      => 'post',
+    'orderby'        => 'title',
+    'posts_per_page' => 12,
+    'category__in'   => [31, 12, 4],
+    //... any other WP_Query args you want.
 ];
 
 $query = new WP_Query($args);
@@ -56,7 +56,7 @@ const params = jQuery.param({
   //... any other WP_Query args you want.
 });
 
-jQuery.get(`https:/your-sitee.com/wp-json/boxybird/wp-query/v1/args?${params}`).done((data) => {
+jQuery.get(`https:/your-site.com/wp-json/boxybird/wp-query/v1/args?${params}`).done((data) => {
   console.log(data);
 });
 ```
@@ -123,54 +123,54 @@ Here's an example of how you could use the filter:
 
 ```php
 add_filter('boxybird/query/format-response', function (WP_Query $query) {
-    // Set queried 'post_type'
+    // Assign queried 'post_type'
     $post_type = strtolower($query->query_vars['post_type']);
 
     // If it's a 'movie' post_type, format like this:
     if ($post_type === 'movie') {
-      return array_map(function ($movie) {
-        return [
-          'id'          => $movie->ID,
-          'title'       => get_the_title($movie->ID),
-          'description' => get_the_content(null, false, $movie->ID),
-          'link'        => get_the_permalink($movie->ID),
-          'genres'      => array_map(function ($term) {
-            return $term->name;
-          }, get_the_terms($movie->ID, 'genre')),
-          'details'     => array_map(function ($detail) {
-            return $detail[0];
-          }, get_post_meta($movie->ID)),
-          'description'  => [
-            'short' => wp_trim_words(get_the_content(null, false, $movie->ID), 10),
-            'long'  => wp_trim_words(get_the_content(null, false, $movie->ID), 75),
-          ],
-          'images' => [
-            'full'      => get_the_post_thumbnail_url($movie->ID, 'full'),
-            'medium'    => get_the_post_thumbnail_url($movie->ID, 'medium'),
-            'thumbnail' => get_the_post_thumbnail_url($movie->ID, 'thumbnail'),
-          ],
-        ];
-      }, $query->posts);
+        return array_map(function ($movie) {
+            return [
+                'id'          => $movie->ID,
+                'title'       => get_the_title($movie->ID),
+                'description' => get_the_content(null, false, $movie->ID),
+                'link'        => get_the_permalink($movie->ID),
+                'genres'      => array_map(function ($term) {
+                    return $term->name;
+                }, get_the_terms($movie->ID, 'genre')),
+                'details'     => array_map(function ($detail) {
+                    return $detail[0];
+                }, get_post_meta($movie->ID)),
+                'description' => [
+                    'short' => wp_trim_words(get_the_content(null, false, $movie->ID), 10),
+                    'long'  => wp_trim_words(get_the_content(null, false, $movie->ID), 75),
+                ],
+                'images' => [
+                    'full'      => get_the_post_thumbnail_url($movie->ID, 'full'),
+                    'medium'    => get_the_post_thumbnail_url($movie->ID, 'medium'),
+                    'thumbnail' => get_the_post_thumbnail_url($movie->ID, 'thumbnail'),
+                ],
+            ];
+        }, $query->posts);
     }
 
     // If it's a 'post' post_type, format like this:
     if ($post_type === 'post') {
-      return array_map(function ($post) {
-        return [
-          'id'       => $post->ID,
-          'title'    => get_the_title($post->ID),
-          'content'  => get_the_content(null, false, $post->ID),
-          'link'     => get_the_permalink($post->ID),
-        ];
-      }, $query->posts);
+        return array_map(function ($post) {
+            return [
+                'id'      => $post->ID,
+                'title'   => get_the_title($post->ID),
+                'content' => get_the_content(null, false, $post->ID),
+                'link'    => get_the_permalink($post->ID),
+            ];
+        }, $query->posts);
     }
 
     // If it's any other post_type, format like this:
     return array_map(function ($post) {
-      return [
-        'id'       => $post->ID,
-        'title'    => get_the_title($post->ID),
-      ];
+        return [
+            'id'    => $post->ID,
+            'title' => get_the_title($post->ID),
+        ];
     }, $query->posts);
 });
 ```
@@ -262,7 +262,7 @@ add_filter('boxybird/query/override-args', function ($args) {
 });
 ```
 
-> Note: The above filter can be thought as a security layer. If you never want an `$arg` to be passed to `WP_Query`, do it here! 
+> Note: The above filter can be thought of as a security layer. If you never want an `$arg` to be passed to `WP_Query`, do it here! 
 
 ### Permissions Callback
 
