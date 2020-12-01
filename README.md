@@ -8,6 +8,8 @@ Query anything you want from the WordPress database using a single REST API endp
 
 > `WP_Query` Reference: https://developer.wordpress.org/reference/classes/wp_query/
 
+![wp_query in javascript](https://user-images.githubusercontent.com/18317878/100775094-a5e1c300-33b7-11eb-99a7-4c14c16d21e1.png)
+
 ## Usage Examples
 
 ### PHP
