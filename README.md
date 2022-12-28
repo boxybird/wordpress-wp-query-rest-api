@@ -67,9 +67,8 @@ jQuery.get(`https:/your-site.com/wp-json/boxybird/wp-query/v1/args?${params}`).d
 
 ## Hooks
 
-> The examples below will use a demo site with a 'movie' post_type.
+> The examples below will use a hypothetical site with a 'movie' post_type.
 >
->https://wp-query.andrewrhyand.com/wp-json/boxybird/wp-query/v1/args?post_type=movie
 
 ### Formatting the JSON response
 
